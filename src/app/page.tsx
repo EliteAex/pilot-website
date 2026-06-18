@@ -1,5 +1,13 @@
+'use client';
+
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { offerList } from "@/content/offers";
+
+const Spline = dynamic(
+  () => import('@splinetool/react-spline/next').then(mod => mod.default),
+  { ssr: false, loading: () => <div className="absolute inset-0 bg-gradient-to-br from-copper/20 via-paper to-paper" /> }
+);
 
 export default function Home() {
   return (
@@ -26,8 +34,9 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-screen overflow-hidden bg-gradient-to-br from-copper/20 via-paper to-paper flex items-center justify-center">
-        <div className="text-center relative z-10">
+      <section className="relative h-screen overflow-hidden flex items-center justify-center">
+        <Spline scene="https://prod.spline.design/FsRq9ODNrtxvma8E/scene.splinecode" />
+        <div className="text-center relative z-10 absolute inset-0 flex items-center justify-center">
           <p className="kicker text-copper mb-6 animate-pulse">VERFÜGBAR FÜR NEUE PROJEKTE</p>
           <h1 className="display text-[clamp(2.5rem,8vw,5.5rem)] leading-tight text-cream mb-8 text-center drop-shadow-lg">
             Lokale Wurzeln.<br />
