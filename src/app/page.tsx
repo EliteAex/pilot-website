@@ -1,6 +1,13 @@
+'use client';
+
 import Link from "next/link";
-import Spline from '@splinetool/react-spline/next';
+import dynamic from "next/dynamic";
 import { offerList } from "@/content/offers";
+
+const Spline = dynamic(
+  () => import('@splinetool/react-spline/next').then(mod => mod.default),
+  { ssr: false, loading: () => <div className="h-screen bg-paper" /> }
+);
 
 const taglines: Record<string, string> = {
   salons: "Voller Kalender, keine verpassten Termine.",
