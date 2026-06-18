@@ -1,13 +1,5 @@
-'use client';
-
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { offerList } from "@/content/offers";
-
-const Spline = dynamic(
-  () => import('@splinetool/react-spline/next').then(mod => mod.default),
-  { ssr: false, loading: () => <div className="h-screen bg-paper" /> }
-);
 
 const taglines: Record<string, string> = {
   salons: "Voller Kalender, keine verpassten Termine.",
@@ -39,8 +31,7 @@ export default function Home() {
       </header>
 
       {/* Epic 3D Hero with Spline */}
-      <section className="relative h-screen overflow-hidden">
-        <Spline scene="https://prod.spline.design/FsRq9ODNrtxvma8E/scene.splinecode" />
+      <section className="relative h-screen overflow-hidden bg-gradient-to-br from-copper/20 to-transparent">
 
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
           <div className="text-center">
