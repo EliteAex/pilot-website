@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Spline from '@splinetool/react-spline/next';
 import { offerList } from "@/content/offers";
 
 const taglines: Record<string, string> = {
@@ -10,7 +11,7 @@ export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col overflow-hidden bg-paper">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-10">
           <div className="flex items-center gap-3">
             <div className="grid h-8 w-8 place-items-center rounded-full bg-copper">
@@ -30,25 +31,25 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-20 md:pt-32">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-gradient-radial from-copper/20 via-transparent to-transparent" />
-        </div>
+      {/* Epic 3D Hero with Spline */}
+      <section className="relative h-screen overflow-hidden">
+        <Spline scene="https://prod.spline.design/FsRq9ODNrtxvma8E/scene.splinecode" />
 
-        <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-24 text-center md:px-10 md:py-40">
-          <p className="kicker text-copper mb-8">VERFÜGBAR FÜR NEUE PROJEKTE</p>
-          <h1 className="display text-[clamp(2.5rem,6vw,5rem)] leading-tight text-ink mb-6">
-            Lokale Wurzeln.<br />
-            <em className="italic">Globale Reichweite.</em>
-          </h1>
-          <p className="max-w-2xl text-lg text-ink-2 mb-12">
-            KI-Systeme für Südtiroler Betriebe. Gratis Website, KI-gestützter Empfang und messbares Wachstum.
-          </p>
-          <a href="#angebot" className="inline-flex items-center gap-2 text-cream transition hover:translate-y-1">
-            <span className="text-sm font-bold">ENTDECKEN</span>
-            <span>↓</span>
-          </a>
+        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+          <div className="text-center">
+            <p className="kicker text-copper mb-6 animate-pulse">VERFÜGBAR FÜR NEUE PROJEKTE</p>
+            <h1 className="display text-[clamp(2.5rem,8vw,5.5rem)] leading-tight text-cream mb-8 text-center drop-shadow-lg">
+              Lokale Wurzeln.<br />
+              <em className="italic">Globale Reichweite.</em>
+            </h1>
+            <p className="max-w-2xl text-base md:text-lg text-cream/80 mb-12 mx-auto drop-shadow">
+              KI-Systeme für Südtiroler Betriebe. Gratis Website, KI-gestützter Empfang und messbares Wachstum.
+            </p>
+            <a href="#angebot" className="inline-flex items-center gap-2 text-cream transition hover:translate-y-1 pointer-events-auto">
+              <span className="text-sm font-bold">ENTDECKEN</span>
+              <span className="text-xl">↓</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -117,11 +118,10 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28">
           <p className="kicker text-copper mb-8">EHRLICH & EINFACH</p>
           <h2 className="display text-[clamp(2rem,5vw,4rem)] leading-tight text-ink mb-16">
-            Die Website ist gratis.<br />Danach zahlst nur, was ihr nutzt.
+            Die Website ist gratis.<br />Danach zahlst du nur, was du nutzt.
           </h2>
 
           <div className="grid gap-8 md:grid-cols-2 max-w-4xl">
-            {/* Free Option */}
             <div className="scroll-in rounded-3xl border border-line bg-paper p-8">
               <p className="kicker text-copper mb-4">DER EINSTIEG</p>
               <div className="mb-8">
@@ -130,25 +130,32 @@ export default function Home() {
               </div>
               <p className="text-ink-2 mb-8">Eure professionelle Website — komplett kostenlos.</p>
               <ul className="space-y-3 mb-8">
-                {[
-                  "Professionelle Website",
-                  "Mobil-optimiert & schnell",
-                  "Impressum & Datenschutz",
-                  "Google-Profil Verbindung",
-                  "Innerhalb weniger Tage online"
-                ].map((feature) => (
-                  <li key={feature} className="flex gap-3 text-sm text-ink-2">
-                    <span className="text-copper">✓</span>
-                    {feature}
-                  </li>
-                ))}
+                <li className="flex gap-3 text-sm text-ink-2">
+                  <span className="text-copper">✓</span>
+                  Professionelle Website
+                </li>
+                <li className="flex gap-3 text-sm text-ink-2">
+                  <span className="text-copper">✓</span>
+                  Mobil-optimiert & schnell
+                </li>
+                <li className="flex gap-3 text-sm text-ink-2">
+                  <span className="text-copper">✓</span>
+                  Impressum & Datenschutz
+                </li>
+                <li className="flex gap-3 text-sm text-ink-2">
+                  <span className="text-copper">✓</span>
+                  Google-Profil Verbindung
+                </li>
+                <li className="flex gap-3 text-sm text-ink-2">
+                  <span className="text-copper">✓</span>
+                  Innerhalb weniger Tage online
+                </li>
               </ul>
               <a href="#kontakt" className="block w-full rounded-lg border border-line bg-transparent px-6 py-4 text-center text-sm font-bold text-ink transition hover:bg-line">
-                GRATIS WEBSITE SICHERN →
+                Gratis Website Anfragen
               </a>
             </div>
 
-            {/* Paid Option */}
             <div className="scroll-in rounded-3xl border-2 border-copper bg-paper-2 p-8 relative">
               <span className="absolute -top-4 left-8 rounded-full bg-copper px-4 py-1 text-xs font-bold text-cream">BELIEBT</span>
               <p className="kicker text-copper mb-4">LAUFEND</p>
@@ -158,22 +165,50 @@ export default function Home() {
               </div>
               <p className="text-ink-2 mb-8">Hosting, Pflege und der KI-Empfangsdienst für euren Betrieb.</p>
               <ul className="space-y-3 mb-8">
-                {[
-                  "Hosting & Domain inklusive",
-                  "SSL-Sicherheit",
-                  "Kleine Anpassungen inklusive",
-                  "KI-Empfangsdienst (optional)",
-                  "Jederzeit kündbar"
-                ].map((feature) => (
-                  <li key={feature} className="flex gap-3 text-sm text-cream">
-                    <span className="text-copper">✓</span>
-                    {feature}
-                  </li>
-                ))}
+                <li className="flex gap-3 text-sm text-cream">
+                  <span className="text-copper">✓</span>
+                  Hosting & Domain inklusive
+                </li>
+                <li className="flex gap-3 text-sm text-cream">
+                  <span className="text-copper">✓</span>
+                  SSL-Sicherheit
+                </li>
+                <li className="flex gap-3 text-sm text-cream">
+                  <span className="text-copper">✓</span>
+                  Kleine Anpassungen inklusive
+                </li>
+                <li className="flex gap-3 text-sm text-cream">
+                  <span className="text-copper">✓</span>
+                  KI-Empfangsdienst (optional)
+                </li>
+                <li className="flex gap-3 text-sm text-cream">
+                  <span className="text-copper">✓</span>
+                  Jederzeit kündbar
+                </li>
               </ul>
               <a href="#kontakt" className="block w-full rounded-lg bg-copper px-6 py-4 text-center text-sm font-bold text-cream transition hover:bg-copper-light">
-                JETZT ANFRAGEN →
+                Jahres-Paket Anfragen
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Guarantee Section */}
+      <section className="bg-paper-2 border-t border-line">
+        <div className="mx-auto max-w-5xl px-6 py-20 md:px-10 md:py-28">
+          <p className="kicker text-copper mb-8">GARANTIE</p>
+          <h2 className="display text-[clamp(2rem,5vw,4rem)] leading-tight text-ink mb-4">Du gehst kein Risiko ein.</h2>
+          <p className="max-w-2xl text-ink-2 mb-12">Zwei Garantien — je nachdem, wie du zahlst. Kein Kleingedrucktes.</p>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="scroll-in rounded-2xl border border-line bg-paper p-8">
+              <h3 className="font-semibold text-ink mb-3">Delayed-Payment-Garantie</h3>
+              <p className="text-ink-2 text-sm">Du zahlst die monatliche Gebühr erst, wenn der Assistent deinen ersten Termin über WhatsApp gebucht hat. Funktioniert es nicht, zahlst du nichts.</p>
+            </div>
+            <div className="scroll-in rounded-2xl border border-copper bg-paper-2 p-8">
+              <h3 className="font-semibold text-ink mb-3">Credit-Garantie</h3>
+              <p className="text-ink-2 text-sm">Bucht der Assistent in den ersten 90 Tagen keine 10 Termine, schreibe ich dir den Gegenwert als Guthaben gut — bis das Ergebnis steht.</p>
             </div>
           </div>
         </div>
@@ -183,16 +218,16 @@ export default function Home() {
       <section id="kontakt" className="mx-auto max-w-3xl px-6 py-20 md:px-10 md:py-28">
         <p className="kicker text-copper mb-8 text-center">DER AUFSTIEG</p>
         <h2 className="display text-[clamp(2rem,5vw,4rem)] leading-tight text-ink mb-12 text-center">
-          Lust auf eine gratis Website? Schreibt uns.
+          Lust auf eine professionelle Website? Schreib uns.
         </h2>
 
         <form className="space-y-6">
           <div>
-            <label className="text-ink mb-2 block">Ich bin</label>
-            <input type="text" placeholder="Euer Name" className="w-full rounded-lg border border-line bg-paper-2 px-4 py-3 text-ink placeholder:text-ink-3 focus:outline-none focus:border-copper" />
+            <label className="text-ink mb-2 block text-sm">Ich bin</label>
+            <input type="text" placeholder="Dein Name" className="w-full rounded-lg border border-line bg-paper-2 px-4 py-3 text-ink placeholder:text-ink-3 focus:outline-none focus:border-copper" />
           </div>
           <div>
-            <label className="text-ink mb-2 block">und habe einen</label>
+            <label className="text-ink mb-2 block text-sm">und habe einen</label>
             <select className="w-full rounded-lg border border-line bg-paper-2 px-4 py-3 text-ink focus:outline-none focus:border-copper">
               <option>Betrieb wählen</option>
               <option>Salon</option>
@@ -200,14 +235,14 @@ export default function Home() {
             </select>
           </div>
           <div>
-            <label className="text-ink mb-2 block">Schreibt mir an</label>
-            <input type="email" placeholder="eure@email.com" className="w-full rounded-lg border border-line bg-paper-2 px-4 py-3 text-ink placeholder:text-ink-3 focus:outline-none focus:border-copper" />
+            <label className="text-ink mb-2 block text-sm">Schreib mir an</label>
+            <input type="email" placeholder="deine@email.com" className="w-full rounded-lg border border-line bg-paper-2 px-4 py-3 text-ink placeholder:text-ink-3 focus:outline-none focus:border-copper" />
           </div>
           <div>
-            <textarea placeholder="Noch etwas, das ihr uns mitteilen wollt? (optional)" className="w-full rounded-lg border border-line bg-paper-2 px-4 py-3 text-ink placeholder:text-ink-3 focus:outline-none focus:border-copper" rows={4}></textarea>
+            <textarea placeholder="Noch etwas, das du uns mitteilen willst?" className="w-full rounded-lg border border-line bg-paper-2 px-4 py-3 text-ink placeholder:text-ink-3 focus:outline-none focus:border-copper" rows={4}></textarea>
           </div>
           <button type="submit" className="w-full rounded-lg bg-copper px-6 py-4 text-center text-sm font-bold text-cream transition hover:bg-copper-light">
-            ANFRAGE SENDEN →
+            Anfrage Senden
           </button>
         </form>
       </section>

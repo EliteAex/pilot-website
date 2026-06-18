@@ -5,10 +5,10 @@
   --font-body: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  /* Dark Theme: Black background + Orange accent (Agentur Südtirol style) */
-  --color-paper: #0a0a0a;
-  --color-paper-2: #1a1a1a;
-  --color-paper-3: #2a2a2a;
+  /* Dark Theme with Pink accent */
+  --color-paper: #0f0a15;
+  --color-paper-2: #1a1520;
+  --color-paper-3: #2a2030;
   --color-cream: #ffffff;
 
   /* Light text for dark theme */
@@ -17,11 +17,11 @@
   --color-ink-3: #808080;
   --color-line: #333333;
 
-  /* Orange accent (Agentur Südtirol) */
-  --color-copper: #ff5722;
-  --color-copper-light: #ff7043;
-  --color-steel: #ff5722;
-  --color-steel-light: #ff7043;
+  /* Pink/Magenta accent (Clean & Modern) */
+  --color-copper: #d946ef;
+  --color-copper-light: #e438dd;
+  --color-steel: #d946ef;
+  --color-steel-light: #e438dd;
   --color-success: #4caf50;
   --color-error: #f44336;
 
@@ -44,7 +44,7 @@ html {
 }
 
 body {
-  background-color: var(--color-paper);
+  background: linear-gradient(135deg, #1a0f2e 0%, #0f0a15 50%, #000000 100%);
   color: var(--color-ink);
   font-family: var(--font-body);
   font-feature-settings: "ss01";

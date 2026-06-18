@@ -117,7 +117,6 @@ export default function OfferPage({ offer }: { offer: Offer }) {
                   key={b.text}
                   className="flex items-center gap-2 text-sm text-ink-2"
                 >
-                  <span className="text-base">{b.icon}</span>
                   {b.text}
                 </li>
               ))}
@@ -153,10 +152,9 @@ export default function OfferPage({ offer }: { offer: Offer }) {
           <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {offer.problems.map((p, i) => (
               <div key={p.t} className="scroll-in">
-                <div className="flex items-center justify-between">
-                  <span className="text-3xl">{p.icon}</span>
-                  <span className="mono text-xs text-ink-3">
-                    0{i + 1}
+                <div className="mb-4">
+                  <span className="mono text-xs text-copper font-bold">
+                    {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>
                 <div className="mt-4 h-px w-full bg-line" />
@@ -177,7 +175,6 @@ export default function OfferPage({ offer }: { offer: Offer }) {
           {offer.steps.map((s) => (
             <div key={s.n} className="scroll-in relative">
               <div className="flex items-end justify-between">
-                <span className="text-4xl">{s.icon}</span>
                 <span className="display text-5xl text-copper">
                   {s.n}
                 </span>
@@ -218,9 +215,6 @@ export default function OfferPage({ offer }: { offer: Offer }) {
                 className="flex items-start justify-between gap-6 border-b border-cream/10 px-6 py-5 last:border-0"
               >
                 <div className="flex items-start gap-3">
-                  <span className="mt-0.5 text-lg">
-                    {row.hero ? "⭐" : row.bonus ? "🎁" : "✅"}
-                  </span>
                   <div>
                     <p className="font-medium leading-snug text-cream">
                       {row.item}
@@ -279,25 +273,25 @@ export default function OfferPage({ offer }: { offer: Offer }) {
                   {plan.badge}
                 </span>
               )}
-              <h3 className="display text-2xl text-ink">{plan.name}</h3>
+              <h3 className={`display text-2xl ${plan.highlight ? "text-ink" : "text-black"}`}>{plan.name}</h3>
               <div className="mt-5 flex items-baseline gap-2">
-                <span className="display text-[3.4rem] leading-none text-ink">
+                <span className={`display text-[3.4rem] leading-none ${plan.highlight ? "text-ink" : "text-black"}`}>
                   {plan.price}
                 </span>
-                <span className="text-ink-2">{plan.priceNote}</span>
+                <span className={plan.highlight ? "text-ink-2" : "text-black"}>{plan.priceNote}</span>
               </div>
-              <p className="mt-3 text-sm text-ink-3">{plan.sub}</p>
-              <ul className="mt-7 space-y-3">
+              <p className={`mt-3 text-sm ${plan.highlight ? "text-ink-3" : "text-black"}`}>{plan.sub}</p>
+              <ul className="mt-7 space-y-4">
                 {plan.features.map((f) => (
-                  <li key={f} className="flex gap-3 text-[15px] text-ink-2">
-                    <span className="shrink-0">✅</span>
-                    <span>{f}</span>
+                  <li key={f} className="flex gap-3 text-[15px]">
+                    <span className="shrink-0 text-copper font-black text-2xl leading-none mt-0.5">✓</span>
+                    <span className={plan.highlight ? "text-cream" : "text-ink-2"}>{f}</span>
                   </li>
                 ))}
               </ul>
               <div className="mt-7 flex-1" />
               <span className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-copper/40 px-3 py-1 text-xs font-medium text-copper">
-                🛡️ {plan.guarantee}
+                {plan.guarantee}
               </span>
               <a
                 href={mail(offer, plan.name)}
@@ -305,7 +299,7 @@ export default function OfferPage({ offer }: { offer: Offer }) {
                   "rounded-full px-6 py-4 text-center text-base font-semibold transition",
                   plan.highlight
                     ? "bg-copper text-cream hover:bg-copper-light"
-                    : "border border-ink/25 text-ink hover:bg-ink hover:text-paper",
+                    : "border border-black bg-white text-black hover:bg-black hover:text-white",
                 ].join(" ")}
               >
                 {plan.cta} →
@@ -334,8 +328,7 @@ export default function OfferPage({ offer }: { offer: Offer }) {
                 key={g.name}
                 className="scroll-in rounded-2xl border border-cream/15 bg-cream/[0.04] p-7"
               >
-                <span className="text-3xl">🛡️</span>
-                <h3 className="mt-4 font-semibold text-cream">{g.name}</h3>
+                <h3 className="font-semibold text-cream mb-2">{g.name}</h3>
                 <p className="mt-2 leading-relaxed text-cream/70">{g.text}</p>
               </div>
             ))}
