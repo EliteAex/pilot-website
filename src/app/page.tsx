@@ -16,9 +16,10 @@ export default function Home() {
       <header className="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-10">
           <div className="flex items-center gap-3">
-            <div className="grid h-8 w-8 place-items-center rounded-full bg-copper">
-              <span className="text-sm font-bold text-cream">P</span>
-            </div>
+            <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 2L28 8V16C28 24.8366 16 30 16 30C16 30 4 24.8366 4 16V8L16 2Z" fill="#d946ef" fillOpacity="0.1" stroke="#d946ef" strokeWidth="2"/>
+              <path d="M16 8L20 11V16C20 20.4183 16 23 16 23C16 23 12 20.4183 12 16V11L16 8Z" fill="#d946ef"/>
+            </svg>
             <span className="display text-xl text-ink">Pilot</span>
           </div>
           <nav className="hidden gap-8 md:flex">
@@ -35,8 +36,18 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative h-screen overflow-hidden flex items-center justify-center">
-        <Spline scene="https://prod.spline.design/FsRq9ODNrtxvma8E/scene.splinecode" />
-        <div className="text-center relative z-10 absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-copper/20 via-paper to-paper" />
+        <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#d946ef" strokeWidth="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="1200" height="800" fill="url(#grid)" />
+          <circle cx="300" cy="200" r="200" fill="#d946ef" opacity="0.1"/>
+          <circle cx="900" cy="600" r="300" fill="#d946ef" opacity="0.05"/>
+        </svg>
+        <div className="text-center relative z-10">
           <p className="kicker text-copper mb-6 animate-pulse">VERFÜGBAR FÜR NEUE PROJEKTE</p>
           <h1 className="display text-[clamp(2.5rem,8vw,5.5rem)] leading-tight text-cream mb-8 text-center drop-shadow-lg">
             Lokale Wurzeln.<br />
