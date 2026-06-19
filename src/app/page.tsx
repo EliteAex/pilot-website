@@ -99,27 +99,42 @@ export default function Home() {
         </h2>
 
         <div className="grid gap-8 md:grid-cols-3">
-          {offerList.map((offer, i) => (
-            <Link
-              key={offer.slug}
-              href={`/${offer.slug}`}
-              className="scroll-in group rounded-2xl border-2 border-copper bg-gradient-to-br from-copper/15 to-copper/5 p-10 transition hover:from-copper/25 hover:to-copper/10 shadow-lg"
-            >
-              <div className="flex items-start justify-between mb-8">
-                <span className="display text-6xl text-copper">0{i + 1}</span>
-                <span className="text-3xl text-copper">→</span>
+          {offerList && offerList.length > 0 ? (
+            offerList.map((offer, i) => (
+              <Link
+                key={offer.slug}
+                href={`/${offer.slug}`}
+                className="scroll-in group rounded-2xl border-2 border-copper bg-gradient-to-br from-copper/15 to-copper/5 p-10 transition hover:from-copper/25 hover:to-copper/10 shadow-lg"
+              >
+                <div className="flex items-start justify-between mb-8">
+                  <span className="display text-6xl text-copper">0{i + 1}</span>
+                  <span className="text-3xl text-copper">→</span>
+                </div>
+                <h3 className="display text-3xl text-cream mb-4 font-bold">{offer.niche || "Service"}</h3>
+                <p className="text-base text-cream/90 mb-8 leading-relaxed font-medium">{offer.offerName || "KI-System für Betriebe"}</p>
+                <div className="flex flex-wrap gap-3">
+                  {offer.heroBadges?.map((badge) => (
+                    <span key={badge.text} className="inline-block rounded-full border-2 border-copper bg-copper/20 px-4 py-2 text-sm font-bold text-copper-light">
+                      {badge.text}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+            ))
+          ) : (
+            <>
+              <div className="rounded-2xl border-2 border-copper bg-gradient-to-br from-copper/15 to-copper/5 p-10">
+                <span className="display text-6xl text-copper">01</span>
+                <h3 className="display text-3xl text-cream mb-4 mt-8">Salons</h3>
+                <p className="text-base text-cream/90 mb-6">Voller Kalender, keine verpassten Termine.</p>
               </div>
-              <h3 className="display text-3xl text-cream mb-4 font-bold">{offer.niche}</h3>
-              <p className="text-base text-cream/90 mb-8 leading-relaxed font-medium">{offer.offerName}</p>
-              <div className="flex flex-wrap gap-3">
-                {offer.heroBadges.map((badge) => (
-                  <span key={badge.text} className="inline-block rounded-full border-2 border-copper bg-copper/20 px-4 py-2 text-sm font-bold text-copper-light">
-                    {badge.text}
-                  </span>
-                ))}
+              <div className="rounded-2xl border-2 border-copper bg-gradient-to-br from-copper/15 to-copper/5 p-10">
+                <span className="display text-6xl text-copper">02</span>
+                <h3 className="display text-3xl text-cream mb-4 mt-8">Handwerker</h3>
+                <p className="text-base text-cream/90 mb-6">Kein Auftrag geht mehr verloren.</p>
               </div>
-            </Link>
-          ))}
+            </>
+          )}
         </div>
       </section>
 
