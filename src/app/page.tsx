@@ -103,7 +103,7 @@ export default function Home() {
             <Link
               key={offer.slug}
               href={`/${offer.slug}`}
-              className="scroll-in group rounded-2xl border-2 border-copper/50 bg-gradient-to-br from-paper-2 to-paper-3 p-10 transition hover:border-copper hover:from-paper-3 hover:to-paper-2 shadow-lg"
+              className="scroll-in group rounded-2xl border-2 border-copper bg-gradient-to-br from-copper/15 to-copper/5 p-10 transition hover:from-copper/25 hover:to-copper/10 shadow-lg"
             >
               <div className="flex items-start justify-between mb-8">
                 <span className="display text-6xl text-copper">0{i + 1}</span>
