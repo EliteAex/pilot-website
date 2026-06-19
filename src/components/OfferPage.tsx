@@ -313,23 +313,23 @@ export default function OfferPage({ offer }: { offer: Offer }) {
       </section>
 
       {/* ── 05 Guarantee ─────────────────────────── */}
-      <section className="bg-ink text-cream">
+      <section className="bg-white text-ink">
         <div className="mx-auto max-w-5xl px-6 py-20 md:px-10 md:py-28">
           <Head
             n="05"
             label="Garantie"
             title={offer.guaranteeTitle}
-            light
+            light={false}
           />
-          <p className="mt-4 max-w-xl text-cream/70">{offer.guaranteeLead}</p>
+          <p className="mt-4 max-w-xl text-ink/80">{offer.guaranteeLead}</p>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {offer.guarantees.map((g) => (
               <div
                 key={g.name}
-                className="scroll-in rounded-2xl border border-cream/15 bg-cream/[0.04] p-7"
+                className="scroll-in rounded-2xl border-2 border-copper/30 bg-copper/5 p-7"
               >
-                <h3 className="font-semibold text-cream mb-2">{g.name}</h3>
-                <p className="mt-2 leading-relaxed text-cream/70">{g.text}</p>
+                <h3 className="font-semibold text-ink mb-2">{g.name}</h3>
+                <p className="mt-2 leading-relaxed text-ink/75">{g.text}</p>
               </div>
             ))}
           </div>
