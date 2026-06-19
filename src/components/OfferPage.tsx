@@ -370,7 +370,7 @@ export default function OfferPage({ offer }: { offer: Offer }) {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a
               href={mail(offer)}
-              className="rounded-full bg-cream px-8 py-4 text-base font-semibold text-ink transition hover:bg-paper"
+              className="rounded-full bg-white px-8 py-4 text-base font-semibold text-black font-bold transition hover:bg-gray-100"
             >
               ✉️ Jetzt Erstgespräch sichern
             </a>
