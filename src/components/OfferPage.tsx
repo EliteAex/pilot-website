@@ -195,10 +195,10 @@ export default function OfferPage({ offer }: { offer: Offer }) {
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-ink/75" />
+        <div className="absolute inset-0 bg-white/90" />
         <div className="relative mx-auto max-w-4xl px-6 py-24 text-center md:py-36">
-          <span className="text-3xl">"</span>
-          <p className="display mt-2 text-[clamp(1.9rem,4.8vw,3.6rem)] leading-tight text-cream">
+          <span className="text-3xl text-copper">"</span>
+          <p className="display mt-2 text-[clamp(1.9rem,4.8vw,3.6rem)] leading-tight text-black font-bold">
             {offer.bandLine}
           </p>
         </div>
