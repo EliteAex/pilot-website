@@ -50,7 +50,7 @@ export default function OfferPage({ offer }: { offer: Offer }) {
               <span className="text-base leading-none">←</span>
             </span>
             <span className="flex items-baseline gap-2">
-              <span className="display text-xl text-ink">Pilot</span>
+              <span className="display text-xl text-ink">amstudio</span>
               <span className="kicker text-ink-3">/ {offer.brand}</span>
             </span>
           </Link>
@@ -390,7 +390,7 @@ export default function OfferPage({ offer }: { offer: Offer }) {
       {/* ── Footer ───────────────────────────────── */}
       <footer className="bg-ink text-cream/60">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-10 text-sm md:flex-row md:px-10">
-          <span className="display text-lg text-cream">Pilot</span>
+          <span className="display text-lg text-cream">amstudio</span>
           <span>
             © {new Date().getFullYear()} · KI-Systeme für Südtiroler Betriebe
           </span>

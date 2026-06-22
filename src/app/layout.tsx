@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Pilot — KI-Systeme für Südtiroler Betriebe",
+  title: "amstudio — KI-Systeme für Südtiroler Betriebe",
   description:
-    "Pilot baut WhatsApp-KI-Systeme für Südtiroler Salons und Handwerker: jede Anfrage beantwortet, jeder Termin gebucht, jedes Angebot nachgefasst. Auf Deutsch und Italienisch.",
+    "amstudio baut WhatsApp-KI-Systeme für Südtiroler Salons und Handwerker: jede Anfrage beantwortet, jeder Termin gebucht, jedes Angebot nachgefasst. Auf Deutsch und Italienisch.",
 };
 
 export default function RootLayout({
