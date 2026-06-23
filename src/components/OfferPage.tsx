@@ -1,11 +1,23 @@
-import Link from "next/link";
-import type { Offer } from "@/content/offers";
+'use client';
 
-const mail = (o: Offer, plan?: string) =>
-  `mailto:alex.grunberer@gmail.com?subject=${encodeURIComponent(
-    `Anfrage ${o.brand}${plan ? " · " + plan : ""}`
-  )}&body=${encodeURIComponent(
-    `Hallo Alex,\n\nich interessiere mich für ${o.brand} für meinen Betrieb.\n\nName / Betrieb:\nTelefon:\n\nLiebe Grüße`
+import Link from "next/link";
+import type { LocalizedOffer, Offer } from "@/content/offers";
+import { offerUI } from "@/content/i18n";
+import { useLang, LangSwitch } from "@/components/LanguageProvider";
+
+const EMAIL = "alex.grunberer@gmail.com";
+const WA_NUMBER = "39327042753";
+
+type OfferUI = (typeof offerUI)["de"];
+
+const mail = (o: Offer, ui: OfferUI, plan?: string) =>
+  `mailto:${EMAIL}?subject=${encodeURIComponent(
+    ui.mailSubject.replace("{brand}", o.brand) + (plan ? " · " + plan : "")
+  )}&body=${encodeURIComponent(ui.mailBody.replace("{brand}", o.brand))}`;
+
+const waLink = (o: Offer, ui: OfferUI) =>
+  `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
+    ui.waMessage.replace("{brand}", o.brand)
   )}`;
 
 function Head({
@@ -39,7 +51,11 @@ function Head({
   );
 }
 
-export default function OfferPage({ offer }: { offer: Offer }) {
+export default function OfferPage({ offerSet }: { offerSet: LocalizedOffer }) {
+  const { lang } = useLang();
+  const offer = offerSet[lang];
+  const ui = offerUI[lang];
+
   return (
     <div className="relative bg-paper">
       {/* ── Header ───────────────────────────────── */}
@@ -54,12 +70,15 @@ export default function OfferPage({ offer }: { offer: Offer }) {
               <span className="kicker text-ink-3">/ {offer.brand}</span>
             </span>
           </Link>
-          <a
-            href={mail(offer)}
-            className="rounded-full bg-copper px-5 py-2.5 text-sm font-semibold text-cream shadow-sm transition hover:bg-copper-light"
-          >
-            Erstgespräch
-          </a>
+          <div className="flex items-center gap-3">
+            <LangSwitch />
+            <a
+              href={mail(offer, ui)}
+              className="rounded-full bg-copper px-5 py-2.5 text-sm font-semibold text-cream shadow-sm transition hover:bg-copper-light"
+            >
+              {ui.headerCta}
+            </a>
+          </div>
         </div>
       </header>
 
@@ -96,16 +115,16 @@ export default function OfferPage({ offer }: { offer: Offer }) {
               style={{ animationDelay: "300ms" }}
             >
               <a
-                href={mail(offer)}
+                href={mail(offer, ui)}
                 className="rounded-full bg-copper px-8 py-4 text-base font-semibold text-cream shadow-md transition hover:bg-copper-light"
               >
-                Kostenloses Erstgespräch →
+                {ui.heroCta1}
               </a>
               <a
                 href="#preise"
                 className="rounded-full border border-ink/25 px-8 py-4 text-base font-semibold text-ink transition hover:border-ink hover:bg-ink hover:text-paper"
               >
-                Pakete ansehen
+                {ui.heroCta2}
               </a>
             </div>
             <ul
@@ -131,14 +150,14 @@ export default function OfferPage({ offer }: { offer: Offer }) {
             />
             <img
               src={offer.heroImg}
-              alt={`${offer.niche} bei der Arbeit`}
+              alt={`${offer.niche} ${ui.heroImgAlt}`}
               className="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-2xl"
             />
             <div className="absolute -bottom-5 -left-5 flex items-center gap-3 rounded-2xl border border-line bg-paper px-5 py-4 shadow-xl">
               <span className="text-2xl">⚡</span>
               <div>
                 <p className="mono text-lg font-semibold text-ink">&lt; 10 Sek</p>
-                <p className="text-xs text-ink-3">bis zur Antwort</p>
+                <p className="text-xs text-ink-3">{ui.badgeAnswer}</p>
               </div>
             </div>
           </div>
@@ -170,7 +189,7 @@ export default function OfferPage({ offer }: { offer: Offer }) {
 
       {/* ── 02 How it works ──────────────────────── */}
       <section className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
-        <Head n="02" label="So funktioniert's" title={offer.stepsTitle} />
+        <Head n="02" label={ui.stepsLabel} title={offer.stepsTitle} />
         <div className="mt-14 grid gap-12 md:grid-cols-3">
           {offer.steps.map((s) => (
             <div key={s.n} className="scroll-in relative">
@@ -207,7 +226,7 @@ export default function OfferPage({ offer }: { offer: Offer }) {
       {/* ── 03 Value stack ───────────────────────── */}
       <section className="bg-loden text-cream">
         <div className="mx-auto max-w-4xl px-6 py-20 md:px-10 md:py-28">
-          <Head n="03" label="Was du bekommst" title="Alles in einem System." light />
+          <Head n="03" label={ui.stackLabel} title={ui.stackTitle} light />
           <div className="mt-12 overflow-hidden rounded-2xl border border-cream/15 bg-cream/[0.04]">
             {offer.stack.map((row) => (
               <div
@@ -221,7 +240,7 @@ export default function OfferPage({ offer }: { offer: Offer }) {
                     </p>
                     {(row.hero || row.bonus) && (
                       <span className="kicker mt-1 inline-block text-cream/45">
-                        {row.hero ? "Kern-System" : "Bonus"}
+                        {row.hero ? ui.stackCore : ui.stackBonus}
                       </span>
                     )}
                   </div>
@@ -233,13 +252,13 @@ export default function OfferPage({ offer }: { offer: Offer }) {
             ))}
           </div>
           <div className="mt-8 flex flex-wrap items-baseline justify-between gap-4">
-            <span className="text-lg text-cream/70">Gesamtwert</span>
+            <span className="text-lg text-cream/70">{ui.totalLabel}</span>
             <span className="mono text-2xl text-cream/45 line-through decoration-copper decoration-2">
               {offer.stackTotal}
             </span>
           </div>
           <p className="mt-2 text-cream/70">
-            Dein Preis steht unten — ein Bruchteil davon.
+            {ui.totalNote}
           </p>
         </div>
       </section>
@@ -250,13 +269,13 @@ export default function OfferPage({ offer }: { offer: Offer }) {
           <p className="display text-[clamp(1.5rem,3.2vw,2.3rem)] leading-snug text-ink">
             <em>„{offer.trust}"</em>
           </p>
-          <p className="kicker mt-6 text-ink-3">— Alex · Südtirol</p>
+          <p className="kicker mt-6 text-ink-3">{ui.trustAttribution}</p>
         </div>
       </section>
 
       {/* ── 04 Pricing ───────────────────────────── */}
       <section id="preise" className="mx-auto max-w-5xl px-6 py-20 md:px-10 md:py-28">
-        <Head n="04" label="Pakete" title="Wähl deinen Weg." />
+        <Head n="04" label={ui.pricingLabel} title={ui.pricingTitle} />
         <div className="mt-14 grid gap-7 md:grid-cols-2">
           {offer.plans.map((plan) => (
             <div
@@ -294,7 +313,7 @@ export default function OfferPage({ offer }: { offer: Offer }) {
                 {plan.guarantee}
               </span>
               <a
-                href={mail(offer, plan.name)}
+                href={mail(offer, ui, plan.name)}
                 className={[
                   "rounded-full px-6 py-4 text-center text-base font-semibold transition",
                   plan.highlight
@@ -316,7 +335,7 @@ export default function OfferPage({ offer }: { offer: Offer }) {
       <section className="bg-white">
         <div className="mx-auto max-w-5xl px-6 py-20 md:px-10 md:py-28">
           <div className="scroll-in">
-            <p className="kicker text-copper">05 — Garantie</p>
+            <p className="kicker text-copper">05 — {ui.guaranteeLabel}</p>
             <div className="mt-5 h-px w-full bg-line" />
             <h2 className="display mt-8 max-w-3xl text-[clamp(2.1rem,4.8vw,3.6rem)] text-black">
               {offer.guaranteeTitle}
@@ -339,7 +358,7 @@ export default function OfferPage({ offer }: { offer: Offer }) {
 
       {/* ── 06 FAQ ───────────────────────────────── */}
       <section className="mx-auto max-w-3xl px-6 py-20 md:px-10 md:py-28">
-        <Head n="06" label="Fragen" title="Häufige Fragen" />
+        <Head n="06" label={ui.faqLabel} title={ui.faqTitle} />
         <div className="mt-12 divide-y divide-line border-y border-line">
           {offer.faq.map((f) => (
             <details key={f.q} className="group py-5">
@@ -369,20 +388,22 @@ export default function OfferPage({ offer }: { offer: Offer }) {
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a
-              href={mail(offer)}
+              href={mail(offer, ui)}
               className="rounded-full bg-white px-8 py-4 text-base font-semibold text-black font-bold transition hover:bg-gray-100"
             >
-              ✉️ Jetzt Erstgespräch sichern
+              {ui.finalCta1}
             </a>
             <a
-              href="https://wa.me/39XXXXXXXXXX"
+              href={waLink(offer, ui)}
+              target="_blank"
+              rel="noopener"
               className="rounded-full border border-cream/50 px-8 py-4 text-base font-semibold text-cream transition hover:bg-cream/10"
             >
-              💬 Auf WhatsApp schreiben
+              {ui.finalCta2}
             </a>
           </div>
           <p className="mono mt-8 text-sm text-cream/70">
-            alex.grunberer@gmail.com
+            {EMAIL}
           </p>
         </div>
       </section>
@@ -392,10 +413,10 @@ export default function OfferPage({ offer }: { offer: Offer }) {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-10 text-sm md:flex-row md:px-10">
           <span className="display text-lg text-cream">amstudio</span>
           <span>
-            © {new Date().getFullYear()} · KI-Systeme für Südtiroler Betriebe
+            © {new Date().getFullYear()} · {ui.footerTagline}
           </span>
           <Link href="/" className="transition hover:text-cream">
-            ← Zur Auswahl
+            {ui.backToChoice}
           </Link>
         </div>
       </footer>

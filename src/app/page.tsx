@@ -1,8 +1,8 @@
 'use client';
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { i18n, LANG_LABELS, type Lang } from "@/content/i18n";
+import { i18n } from "@/content/i18n";
+import { useLang, LangSwitch } from "@/components/LanguageProvider";
 
 /* ───────────────────────────────────────────────
    KONTAKT-DATEN — HIER deine echten Daten eintragen.
@@ -15,21 +15,7 @@ const WA_NUMBER = "39327042753";                // wa.me-Format: Ländercode 39 
 const EMAIL = "alex@amstudio.ink";
 
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("de");
-
-  // Sprache aus localStorage laden + <html lang> setzen
-  useEffect(() => {
-    const stored = (typeof window !== "undefined" && localStorage.getItem("amstudio-lang")) as Lang | null;
-    if (stored === "de" || stored === "it") setLang(stored);
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("amstudio-lang", lang);
-      document.documentElement.lang = lang;
-    }
-  }, [lang]);
-
+  const { lang } = useLang();
   const t = i18n[lang];
   const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(t.waMessage)}`;
 
@@ -54,7 +40,7 @@ export default function Home() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <LangSwitch lang={lang} setLang={setLang} />
+            <LangSwitch />
             <a href={WA_LINK} target="_blank" rel="noopener" className="hidden items-center gap-2 rounded-sm border border-line px-4 py-3 text-xs font-bold text-ink transition hover:border-copper hover:text-copper sm:inline-flex">
               {t.btn.whatsapp}
             </a>
@@ -316,24 +302,5 @@ export default function Home() {
         <a href={WA_LINK} target="_blank" rel="noopener" className="bg-copper py-4 text-center text-sm font-bold text-cream">{t.sticky.whatsapp}</a>
       </div>
     </main>
-  );
-}
-
-/* ── Sprach-Umschalter DE / IT ──────────────────── */
-function LangSwitch({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
-  return (
-    <div className="flex items-center rounded-sm border border-line text-xs font-bold" role="group" aria-label="Sprache / Lingua">
-      {(Object.keys(LANG_LABELS) as Lang[]).map((l) => (
-        <button
-          key={l}
-          type="button"
-          onClick={() => setLang(l)}
-          aria-pressed={lang === l}
-          className={`px-2.5 py-2 transition ${lang === l ? "bg-copper text-cream" : "text-ink-2 hover:text-ink"}`}
-        >
-          {LANG_LABELS[l]}
-        </button>
-      ))}
-    </div>
   );
 }

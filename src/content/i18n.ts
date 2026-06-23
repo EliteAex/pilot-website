@@ -287,4 +287,70 @@ const it: typeof de = {
 
 export const i18n = { de, it };
 
+/* ───────────────────────────────────────────────
+   UI-Chrome der Angebots-Unterseiten (OfferPage).
+   Die Inhaltsdaten selbst stehen in offers.ts (de/it);
+   hier nur die festen Beschriftungen rundherum.
+   `{brand}` wird zur Laufzeit ersetzt.
+   ─────────────────────────────────────────────── */
+const offerDe = {
+  headerCta: "Erstgespräch",
+  heroCta1: "Kostenloses Erstgespräch →",
+  heroCta2: "Pakete ansehen",
+  heroImgAlt: "bei der Arbeit",
+  badgeAnswer: "bis zur Antwort",
+  stepsLabel: "So funktioniert's",
+  stackLabel: "Was du bekommst",
+  stackTitle: "Alles in einem System.",
+  stackCore: "Kern-System",
+  stackBonus: "Bonus",
+  totalLabel: "Gesamtwert",
+  totalNote: "Dein Preis steht unten — ein Bruchteil davon.",
+  trustAttribution: "— Alex · Südtirol",
+  pricingLabel: "Pakete",
+  pricingTitle: "Wähl deinen Weg.",
+  guaranteeLabel: "Garantie",
+  faqLabel: "Fragen",
+  faqTitle: "Häufige Fragen",
+  finalCta1: "✉️ Jetzt Erstgespräch sichern",
+  finalCta2: "💬 Auf WhatsApp schreiben",
+  backToChoice: "← Zur Auswahl",
+  footerTagline: "KI-Systeme für Südtiroler Betriebe",
+  waMessage: "Hallo amstudio, ich interessiere mich für {brand}.",
+  mailSubject: "Anfrage {brand}",
+  mailBody:
+    "Hallo Alex,\n\nich interessiere mich für {brand} für meinen Betrieb.\n\nName / Betrieb:\nTelefon:\n\nLiebe Grüße",
+};
+
+const offerIt: typeof offerDe = {
+  headerCta: "Prima call",
+  heroCta1: "Prima call gratuita →",
+  heroCta2: "Vedi i pacchetti",
+  heroImgAlt: "al lavoro",
+  badgeAnswer: "alla risposta",
+  stepsLabel: "Come funziona",
+  stackLabel: "Cosa ricevi",
+  stackTitle: "Tutto in un unico sistema.",
+  stackCore: "Sistema base",
+  stackBonus: "Bonus",
+  totalLabel: "Valore totale",
+  totalNote: "Il tuo prezzo è qui sotto — una frazione di questo.",
+  trustAttribution: "— Alex · Alto Adige",
+  pricingLabel: "Pacchetti",
+  pricingTitle: "Scegli la tua strada.",
+  guaranteeLabel: "Garanzia",
+  faqLabel: "Domande",
+  faqTitle: "Domande frequenti",
+  finalCta1: "✉️ Prenota subito la prima call",
+  finalCta2: "💬 Scrivici su WhatsApp",
+  backToChoice: "← Alla selezione",
+  footerTagline: "Sistemi AI per le attività dell'Alto Adige",
+  waMessage: "Ciao amstudio, sono interessato a {brand}.",
+  mailSubject: "Richiesta {brand}",
+  mailBody:
+    "Ciao Alex,\n\nsono interessato a {brand} per la mia attività.\n\nNome / Attività:\nTelefono:\n\nCordiali saluti",
+};
+
+export const offerUI = { de: offerDe, it: offerIt };
+
 export const LANG_LABELS: Record<Lang, string> = { de: "DE", it: "IT" };

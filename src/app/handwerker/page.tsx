@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function HandwerkerPage() {
-  return <OfferPage offer={offers.handwerker} />;
+  return <OfferPage offerSet={offers.handwerker} />;
 }
