@@ -42,7 +42,7 @@ export function ImpressumContent() {
         <section>
           <h2 className="mb-3 font-semibold text-ink">{de ? "Kontakt" : "Contatti"}</h2>
           <p>
-            {de ? "Telefon" : "Telefono"}: <span className="mono">+39 327 042 753</span><br />
+            {de ? "Telefon" : "Telefono"}: <span className="mono">+39 327 304 2753</span><br />
             {de ? "E-Mail" : "E-mail"}: <a href={`mailto:${EMAIL}`} className="mono text-copper hover:text-copper-light">{EMAIL}</a>
           </p>
         </section>

@@ -6,7 +6,7 @@ import { offerUI } from "@/content/i18n";
 import { useLang, LangSwitch } from "@/components/LanguageProvider";
 
 const EMAIL = "alex.grunberer@gmail.com";
-const WA_NUMBER = "39327042753";
+const WA_NUMBER = "393273042753";
 
 type OfferUI = (typeof offerUI)["de"];
 

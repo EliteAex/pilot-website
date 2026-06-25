@@ -9,9 +9,9 @@ import { useLang, LangSwitch } from "@/components/LanguageProvider";
    Werden überall auf der Seite verwendet (Header, Hero,
    Kontakt, Sticky-Bar, Footer). Nur EINMAL ändern nötig.
    ─────────────────────────────────────────────── */
-const PHONE_DISPLAY = "+39 327 042 753";        // TODO prüfen: nur 9 Ziffern — IT-Handy hat meist 10
-const PHONE_TEL = "+39327042753";
-const WA_NUMBER = "39327042753";                // wa.me-Format: Ländercode 39 + Nummer ohne +
+const PHONE_DISPLAY = "+39 327 304 2753";
+const PHONE_TEL = "+393273042753";
+const WA_NUMBER = "393273042753";               // wa.me-Format: Ländercode 39 + Nummer ohne +
 const EMAIL = "alex@amstudio.ink";
 
 export default function Home() {
