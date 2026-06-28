@@ -17,6 +17,7 @@ export default function RootLayout({
     <html lang="de" className="h-full">
       <head>
         <meta name="msvalidate.01" content="A759E7C10662156C9EF667CE8747D18E" />
+        <meta name="google-site-verification" content="MkU-7gS5uIgIZu1NrWuNwmUTGOBPhrGP7Eld_KXv2Yo" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
