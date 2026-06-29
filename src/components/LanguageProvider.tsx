@@ -47,7 +47,7 @@ export function LangSwitch({ className = "" }: { className?: string }) {
           type="button"
           onClick={() => setLang(l)}
           aria-pressed={lang === l}
-          className={`px-2.5 py-2 transition ${lang === l ? "bg-copper text-cream" : "text-ink-2 hover:text-ink"}`}
+          className={`px-2.5 py-2 transition ${lang === l ? "bg-copper text-on-accent" : "text-ink-2 hover:text-ink"}`}
         >
           {LANG_LABELS[l]}
         </button>

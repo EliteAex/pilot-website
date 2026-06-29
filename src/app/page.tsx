@@ -236,7 +236,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="scroll-in relative rounded-3xl border-2 border-copper bg-paper-2/60 p-8 shadow-[0_30px_80px_-40px_rgba(217,70,239,0.6)]">
+            <div className="scroll-in relative rounded-3xl border-2 border-copper bg-paper-2/60 p-8 shadow-[0_30px_80px_-40px_rgba(216,184,120,0.6)]">
               <span className="absolute -top-3.5 left-8 rounded-full bg-copper px-4 py-1 text-xs font-bold text-paper">{t.pricing.popular}</span>
               <p className="kicker text-copper-light mb-4">{t.pricing.ongoing.kicker}</p>
               <div className="mb-8">

@@ -74,7 +74,7 @@ export default function OfferPage({ offerSet }: { offerSet: LocalizedOffer }) {
             <LangSwitch />
             <a
               href={mail(offer, ui)}
-              className="rounded-full bg-copper px-5 py-2.5 text-sm font-semibold text-cream shadow-sm transition hover:bg-copper-light"
+              className="rounded-full bg-copper px-5 py-2.5 text-sm font-semibold text-on-accent shadow-sm transition hover:bg-copper-light"
             >
               {ui.headerCta}
             </a>
@@ -116,7 +116,7 @@ export default function OfferPage({ offerSet }: { offerSet: LocalizedOffer }) {
             >
               <a
                 href={mail(offer, ui)}
-                className="rounded-full bg-copper px-8 py-4 text-base font-semibold text-cream shadow-md transition hover:bg-copper-light"
+                className="rounded-full bg-copper px-8 py-4 text-base font-semibold text-on-accent shadow-md transition hover:bg-copper-light"
               >
                 {ui.heroCta1}
               </a>
@@ -288,7 +288,7 @@ export default function OfferPage({ offerSet }: { offerSet: LocalizedOffer }) {
               ].join(" ")}
             >
               {plan.badge && (
-                <span className="absolute -top-3 left-8 rounded-full bg-copper px-4 py-1 text-xs font-semibold text-cream">
+                <span className="absolute -top-3 left-8 rounded-full bg-copper px-4 py-1 text-xs font-semibold text-on-accent">
                   {plan.badge}
                 </span>
               )}
@@ -317,7 +317,7 @@ export default function OfferPage({ offerSet }: { offerSet: LocalizedOffer }) {
                 className={[
                   "rounded-full px-6 py-4 text-center text-base font-semibold transition",
                   plan.highlight
-                    ? "bg-copper text-cream hover:bg-copper-light"
+                    ? "bg-copper text-on-accent hover:bg-copper-light"
                     : "border border-black bg-white text-black hover:bg-black hover:text-white",
                 ].join(" ")}
               >
@@ -377,13 +377,13 @@ export default function OfferPage({ offerSet }: { offerSet: LocalizedOffer }) {
       {/* ── Final CTA / Contact ──────────────────── */}
       <section
         id="kontakt"
-        className="border-t border-line bg-copper text-cream"
+        className="border-t border-line bg-copper text-on-accent"
       >
         <div className="mx-auto max-w-3xl px-6 py-24 text-center md:px-10">
           <h2 className="display text-[clamp(2.2rem,5vw,4rem)]">
             {offer.finalTitle}
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-cream/85">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-on-accent/80">
             {offer.finalSub}
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -397,12 +397,12 @@ export default function OfferPage({ offerSet }: { offerSet: LocalizedOffer }) {
               href={waLink(offer, ui)}
               target="_blank"
               rel="noopener"
-              className="rounded-full border border-cream/50 px-8 py-4 text-base font-semibold text-cream transition hover:bg-cream/10"
+              className="rounded-full border border-on-accent/40 px-8 py-4 text-base font-semibold text-on-accent transition hover:bg-on-accent/10"
             >
               {ui.finalCta2}
             </a>
           </div>
-          <p className="mono mt-8 text-sm text-cream/70">
+          <p className="mono mt-8 text-sm text-on-accent/70">
             {EMAIL}
           </p>
         </div>
