@@ -3,9 +3,9 @@ import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
-  title: "amstudio — KI-Systeme für Südtiroler Betriebe",
+  title: "amstudio: AI Receptionist Salons Südtirol – Weniger Handyzeit",
   description:
-    "amstudio baut WhatsApp-KI-Systeme für Südtiroler Salons und Handwerker: jede Anfrage beantwortet, jeder Termin gebucht, jedes Angebot nachgefasst. Auf Deutsch und Italienisch.",
+    "amstudio baut den AI & Phone Receptionist für Salons in Südtirol: jede Anfrage beantwortet, jeder Termin gebucht. Weniger Zeit am Handy, mehr Zeit für Kunden.",
 };
 
 export default function RootLayout({
