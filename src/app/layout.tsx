@@ -3,9 +3,9 @@ import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
-  title: "amstudio – AI & Phone Receptionist: Weniger Zeit am Handy",
+  title: "amstudio: dein AI & Phone Receptionist für weniger Zeit am Handy",
   description:
-    "amstudio baut den AI & Phone Receptionist für Salons in Südtirol: jede Anfrage beantwortet, jeder Termin gebucht. Weniger Zeit am Handy, mehr Zeit für Kunden.",
+    "amstudio, damit du weniger Zeit am Handy verbringst und mehr Zeit für deine Kunden hast. Dein AI & Phone Receptionist für Salons in Südtirol – jede Anfrage beantwortet, jeder Termin gebucht.",
 };
 
 export default function RootLayout({
