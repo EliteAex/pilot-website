@@ -5,27 +5,28 @@
   --font-body: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  /* Dark Theme with Pink accent */
-  --color-paper: #0f0a15;
-  --color-paper-2: #1a1520;
-  --color-paper-3: #2a2030;
+  /* Canvas — near-black with a faint violet undertone */
+  --color-paper: #0a0710;
+  --color-paper-2: #120c1c;
+  --color-paper-3: #1b1428;
   --color-cream: #ffffff;
 
-  /* Light text for dark theme */
-  --color-ink: #ffffff;
-  --color-ink-2: #b3b3b3;
-  --color-ink-3: #808080;
-  --color-line: #333333;
+  /* Text on dark */
+  --color-ink: #f4f1f8;
+  --color-ink-2: #a99fb8;
+  --color-ink-3: #6f6680;
+  --color-line: #2a2238;
 
-  /* Pink/Magenta accent (Clean & Modern) */
-  --color-copper: #d946ef;
-  --color-copper-light: #e438dd;
-  --color-steel: #d946ef;
-  --color-steel-light: #e438dd;
-  --color-success: #4caf50;
-  --color-error: #f44336;
+  /* Single signal colour — warm sand / gold */
+  --color-copper: #d8b878;
+  --color-copper-light: #ecd49a;
+  --color-copper-deep: #b28a45;
+  --color-steel: #d8b878;
+  --color-steel-light: #ecd49a;
+  --color-on-accent: #1a130a;
+  --color-success: #34d399;
+  --color-error: #fb7185;
 
-  /* Loden (mountain green) */
   --color-loden: #2d5016;
 }
 
@@ -44,32 +45,38 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #1a0f2e 0%, #0f0a15 50%, #000000 100%);
+  background-color: #08050d;
   color: var(--color-ink);
   font-family: var(--font-body);
   font-feature-settings: "ss01";
   line-height: 1.6;
+  /* Layered atmosphere: a couple of soft gold auroras over near-black */
+  background-image:
+    radial-gradient(48rem 32rem at 78% -8%, rgba(216, 184, 120, 0.15), transparent 60%),
+    radial-gradient(40rem 30rem at 0% 12%, rgba(178, 138, 69, 0.12), transparent 55%),
+    radial-gradient(60rem 40rem at 50% 120%, rgba(216, 184, 120, 0.07), transparent 60%);
+  background-attachment: fixed;
 }
 
 ::selection {
-  background: var(--color-ink);
-  color: var(--color-paper);
+  background: var(--color-copper);
+  color: var(--color-on-accent);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-ink);
+  outline: 2px solid var(--color-copper);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
-/* Paper texture — pure CSS, no SVG */
+/* Fine grain — fixed overlay above the canvas, below content */
 .grain {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  z-index: 1;
   pointer-events: none;
-  mix-blend-mode: multiply;
-  background-image: radial-gradient(rgba(20, 17, 12, 0.045) 0.6px, transparent 0.6px);
+  opacity: 0.5;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.025) 0.5px, transparent 0.5px);
   background-size: 3px 3px;
 }
 
@@ -77,20 +84,24 @@ body {
 .display {
   font-family: var(--font-display);
   font-optical-sizing: auto;
-  letter-spacing: -0.025em;
-  line-height: 0.96;
-  font-weight: 460;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  font-weight: 480;
 }
 
 .display em {
   font-style: italic;
   font-weight: 420;
+  background: linear-gradient(100deg, var(--color-copper-light), var(--color-copper) 50%, var(--color-copper-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .kicker {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -106,44 +117,137 @@ body {
   background: var(--color-line);
 }
 
+/* Hairline kicker with a leading tick */
+.kicker-tick {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.kicker-tick::before {
+  content: "";
+  width: 1.6rem;
+  height: 1px;
+  background: var(--color-copper);
+}
+
+/* ── Buttons ────────────────────────────────── */
+.btn-primary {
+  position: relative;
+  background: linear-gradient(180deg, var(--color-copper-light), var(--color-copper));
+  color: var(--color-on-accent);
+  font-weight: 700;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14) inset,
+    0 12px 30px -10px rgba(216, 184, 120, 0.55);
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.25s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22) inset,
+    0 18px 40px -10px rgba(216, 184, 120, 0.7);
+}
+
+.btn-ghost {
+  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.015);
+  color: var(--color-ink);
+  transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.btn-ghost:hover {
+  border-color: var(--color-copper);
+  color: var(--color-copper-light);
+  background: rgba(216, 184, 120, 0.07);
+}
+
+/* ── Glass surfaces ─────────────────────────── */
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.card-hover {
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.35s, box-shadow 0.35s;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(216, 184, 120, 0.55);
+  box-shadow: 0 24px 60px -30px rgba(216, 184, 120, 0.45);
+}
+
+/* Device-screen frame for the demo */
+.device {
+  border-radius: 1.75rem;
+  background: linear-gradient(180deg, #15101f, #0c0813);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
 /* ── Motion ─────────────────────────────────── */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.25; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-2px); }
+}
+@keyframes ring {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); }
+  50% { box-shadow: 0 0 0 14px rgba(52, 211, 153, 0); }
+}
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.12); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+
+.reveal { animation: fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.bubble-in { animation: bubbleIn 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.pop-in { animation: pop 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.3) both; }
+.floaty { animation: floaty 6s ease-in-out infinite; }
+
+.dot { animation: blink 1.2s infinite both; }
+.dot:nth-child(2) { animation-delay: 0.18s; }
+.dot:nth-child(3) { animation-delay: 0.36s; }
+
+.ringing { animation: ring 1.5s ease-out infinite; }
+
+.shimmer-text {
+  background: linear-gradient(90deg, var(--color-ink-2) 0%, #fff 20%, var(--color-ink-2) 40%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 3.5s linear infinite;
 }
 
-.reveal {
-  animation: fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-
-@keyframes spinSlow {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Scroll-driven reveal (pure CSS, progressive enhancement) */
+/* Scroll-driven reveal (progressive enhancement) */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .scroll-in {
       animation: fadeUp linear both;
       animation-timeline: view();
-      animation-range: entry 5% cover 22%;
+      animation-range: entry 5% cover 20%;
     }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
-    animation: none;
-  }
-  html {
-    scroll-behavior: auto;
-  }
+  .reveal, .bubble-in, .pop-in, .floaty, .dot, .ringing, .shimmer-text { animation: none; }
+  html { scroll-behavior: auto; }
 }

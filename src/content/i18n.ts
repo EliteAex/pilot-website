@@ -135,6 +135,46 @@ const de = {
       submit: "Anfrage senden",
     },
   },
+  demo: {
+    kicker: "LIVE AUSPROBIEREN",
+    title: "Sieh, wie dein Empfang",
+    titleEm: "von selbst bucht.",
+    lead: "Kein Video, keine Folien — eine echte Mini-Version. Schreib wie ein Kunde, frag nach einem Termin und schau zu.",
+  },
+  video: {
+    kicker: "IN 90 SEKUNDEN",
+    title: "So läuft eine Buchung wirklich ab.",
+    lead: "Vom ersten „Habt ihr Mittwoch frei?“ bis zum Eintrag im Kalender — komplett automatisch, Tag und Nacht.",
+    badge: "▶ Demo ansehen",
+    duration: "1:28",
+    caption: "Echte Anfrage · WhatsApp + Anruf · Kalender + SMS",
+  },
+  infos: {
+    kicker: "GUT ZU WISSEN",
+    title: "Alles, was du dich gerade fragst.",
+    items: [
+      {
+        q: "Wie schnell ist mein Empfang aktiv?",
+        a: "Die Website steht in wenigen Tagen, der KI-Empfang ist innerhalb von 7 Tagen live — eingerichtet, getestet und auf deinen Betrieb abgestimmt.",
+      },
+      {
+        q: "Spricht die KI Deutsch und Italienisch?",
+        a: "Ja. Sie erkennt die Sprache des Kunden automatisch und antwortet auf Deutsch oder Italienisch — so wie deine Kundschaft schreibt.",
+      },
+      {
+        q: "Was passiert bei einem Anruf?",
+        a: "Geht niemand ran, nimmt die KI ab, beantwortet die Frage und bucht den Termin. Du bekommst alles als Notiz — kein verpasster Anruf mehr.",
+      },
+      {
+        q: "Bleibt die Kontrolle bei mir?",
+        a: "Komplett. Du siehst jede Buchung, kannst Zeiten sperren, Preise ändern und jederzeit selbst übernehmen. Die KI nimmt dir nur die Tipparbeit ab.",
+      },
+      {
+        q: "Was kostet mich das wirklich?",
+        a: "Die Website ist gratis. Den laufenden Empfang zahlst du erst, wenn der erste Termin gebucht ist — ab 30 €/Monat, jederzeit kündbar.",
+      },
+    ],
+  },
   footer: {
     tagline: "KI-Systeme für Südtiroler Betriebe",
     impressum: "Impressum",
@@ -273,6 +313,46 @@ const it: typeof de = {
       msgPh: "Qualcos'altro che dovremmo sapere?",
       submit: "Invia richiesta",
     },
+  },
+  demo: {
+    kicker: "PROVALA DAL VIVO",
+    title: "Guarda la tua reception",
+    titleEm: "prenotare da sola.",
+    lead: "Niente video, niente slide — una vera mini-versione. Scrivi come un cliente, chiedi un appuntamento e guarda.",
+  },
+  video: {
+    kicker: "IN 90 SECONDI",
+    title: "Ecco come avviene davvero una prenotazione.",
+    lead: "Dal primo «Avete posto mercoledì?» fino all'evento in agenda — tutto in automatico, giorno e notte.",
+    badge: "▶ Guarda la demo",
+    duration: "1:28",
+    caption: "Richiesta reale · WhatsApp + chiamata · Agenda + SMS",
+  },
+  infos: {
+    kicker: "DA SAPERE",
+    title: "Tutto quello che ti stai chiedendo.",
+    items: [
+      {
+        q: "In quanto tempo è attiva la reception?",
+        a: "Il sito è pronto in pochi giorni, la reception AI è online entro 7 giorni — configurata, testata e adattata alla tua attività.",
+      },
+      {
+        q: "L'AI parla tedesco e italiano?",
+        a: "Sì. Riconosce in automatico la lingua del cliente e risponde in tedesco o italiano — proprio come scrive la tua clientela.",
+      },
+      {
+        q: "Cosa succede con una chiamata?",
+        a: "Se non risponde nessuno, l'AI risponde, dà le informazioni e fissa l'appuntamento. Ricevi tutto come nota — nessuna chiamata persa.",
+      },
+      {
+        q: "Mantengo il controllo?",
+        a: "Totale. Vedi ogni prenotazione, puoi bloccare orari, cambiare prezzi e subentrare quando vuoi. L'AI ti toglie solo il lavoro di scrivere.",
+      },
+      {
+        q: "Quanto mi costa davvero?",
+        a: "Il sito è gratis. La reception la paghi solo quando è fissato il primo appuntamento — da 30 €/mese, disdici quando vuoi.",
+      },
+    ],
   },
   footer: {
     tagline: "Sistemi AI per le attività dell'Alto Adige",
