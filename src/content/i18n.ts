@@ -51,19 +51,6 @@ const de = {
       },
     ],
   },
-  example: {
-    kicker: "BEISPIELPROJEKT",
-    title: "So sieht das fertige Ergebnis aus.",
-    body: "ELEKTRIX, ein Elektrobetrieb aus Mölten: professionelle Website plus KI-Empfang, der Anfragen rund um die Uhr beantwortet und Termine bucht — auf Deutsch und Italienisch.",
-    cta: "Beispiel ansehen →",
-    brand: "ELEKTRIX",
-    rows: [
-      { k: "Branche", v: "Elektro & Technik" },
-      { k: "Ort", v: "Mölten, Südtirol" },
-      { k: "Umfang", v: "Website + KI-Empfang" },
-      { k: "Sprachen", v: "DE / IT" },
-    ],
-  },
   pricing: {
     kicker: "EHRLICH & EINFACH",
     title: "Die Website ist gratis. Danach zahlst du nur, was du nutzt.",
@@ -228,19 +215,6 @@ const it: typeof de = {
         desc: "Nessuna chiamata, nessun lavoro perso.",
         badges: ["Online in 7 giorni", "DE + IT"],
       },
-    ],
-  },
-  example: {
-    kicker: "PROGETTO DI ESEMPIO",
-    title: "Ecco come appare il risultato finito.",
-    body: "ELEKTRIX, un'azienda elettrica di Meltina: sito web professionale più reception AI che risponde alle richieste 24 ore su 24 e fissa gli appuntamenti — in tedesco e italiano.",
-    cta: "Guarda l'esempio →",
-    brand: "ELEKTRIX",
-    rows: [
-      { k: "Settore", v: "Elettro & Tecnica" },
-      { k: "Luogo", v: "Meltina, Alto Adige" },
-      { k: "Ambito", v: "Sito + reception AI" },
-      { k: "Lingue", v: "DE / IT" },
     ],
   },
   pricing: {

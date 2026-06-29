@@ -155,39 +155,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Beispielprojekt / Proof ──────────────── */}
-      <section className="border-t border-line/60 bg-paper-2/40">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:px-10 md:py-28">
-          <div>
-            <p className="kicker-tick kicker text-copper-light mb-6 inline-flex">{t.example.kicker}</p>
-            <h2 className="display mb-6 text-[clamp(2rem,5vw,3.5rem)] text-ink">
-              {t.example.title}
-            </h2>
-            <p className="mb-8 text-ink-2">{t.example.body}</p>
-            <a href="#kontakt" className="inline-flex items-center gap-2 rounded-full px-6 py-4 text-sm font-bold btn-ghost">
-              {t.example.cta}
-            </a>
-          </div>
-          <div className="scroll-in glass floaty rounded-3xl p-8">
-            <div className="mb-6 flex items-center gap-3">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-copper-light to-copper-deep text-sm font-bold text-paper">E</span>
-              <span className="display text-2xl text-cream">{t.example.brand}</span>
-            </div>
-            <div className="space-y-3">
-              {t.example.rows.map((row, i) => (
-                <div
-                  key={row.k}
-                  className={`flex justify-between text-sm ${i < t.example.rows.length - 1 ? "border-b border-line pb-3" : "pb-1"}`}
-                >
-                  <span className="text-ink-2">{row.k}</span>
-                  <span className="text-ink">{row.v}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── Video ────────────────────────────────── */}
       <section className="border-t border-line/60">
         <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
