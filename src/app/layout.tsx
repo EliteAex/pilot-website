@@ -3,7 +3,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
-  title: "amstudio: AI Receptionist Salons Südtirol – Weniger Handyzeit",
+  title: "amstudio – AI & Phone Receptionist: Weniger Zeit am Handy",
   description:
     "amstudio baut den AI & Phone Receptionist für Salons in Südtirol: jede Anfrage beantwortet, jeder Termin gebucht. Weniger Zeit am Handy, mehr Zeit für Kunden.",
 };
