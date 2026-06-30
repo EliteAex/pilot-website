@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
@@ -31,6 +32,11 @@ export default function RootLayout({
       </head>
       <body className="min-h-full antialiased">
         <LanguageProvider>{children}</LanguageProvider>
+        <Script
+          src="https://app.famulor.de/embed.js"
+          data-assistant-id="078517cc-3c5e-44f8-85f9-c58737d91556"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
